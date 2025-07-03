@@ -168,7 +168,7 @@ export default function Projects() {
                             {project.tech.map((icon, j) => (
                                 <motion.div
                                     key={j}
-                                    className='relative group bg-white dark:bg-gray-700 p-0.5 rounded text-lg flex items-center justify-center w-7 h-7 cursor-pointer'
+                                    className='relative group bg-white dark:bg-gray-700 p-0.5 rounded flex items-center justify-center w-8 h-8 cursor-pointer'
                                     onMouseEnter={() => setHovered({ ...hovered, [i]: j })}
                                     onMouseLeave={() => setHovered({ ...hovered, [i]: null })}
                                     onClick={() => setHovered({ ...hovered, [i]: j })}
@@ -181,7 +181,13 @@ export default function Projects() {
                                             {getTechName(icon)}
                                         </span>
                                     )}
-                                    {icon}
+                                    {icon && typeof icon.type === 'function'
+                                        ? (
+                                            <span className="text-2xl leading-none font-normal w-full h-full flex items-center justify-center">
+                                                {icon}
+                                            </span>
+                                        )
+                                        : icon}
                                 </motion.div>
                             ))}
                         </div>

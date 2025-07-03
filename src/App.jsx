@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import EnvelopeLetter from './components/EnvelopeLetter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import {ToastContainer} from 'react-toastify';
@@ -17,6 +18,7 @@ function App() {
           <div className='mb-16'><Hero /></div>
           <div className='mb-16'><Skills /></div>
           <div className='mb-16'><Projects /></div>
+          <div className='mb-16'><EnvelopeLetter /></div>
           <div><Contact /></div>
         </SectionBlurWrapper>
       </main>

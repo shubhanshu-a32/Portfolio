@@ -23,6 +23,7 @@ const navLinks = ["Home", "Skills", "Projects", "Contact"];
 export default function Navbar() {
     const [darkMode, setDarkMode] = useState(() => {
         const saved = localStorage.getItem('theme-dark');
+        if (saved === null) return true; // Default to dark mode
         return saved === 'true' ? true : false;
     });
     const [isScrolled, setIsScrolled] = useState(false);

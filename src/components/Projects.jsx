@@ -10,14 +10,14 @@ const projects = [
         liveLink: 'https://chat-app-front-end-amber.vercel.app/',
         repoLink: 'https://github.com/shubhanshu-a32/ChatApp-Front-End-',
         tech: [
-            <FaReact className='text-sky-500' />,
-            <SiTailwindcss className='text-teal-400' />,
-            <FaNodeJs className='text-green-600' />,
-            <SiExpress className='text-gray-800 dark:text-gray-200' />,
-            <SiSocketdotio className='text-indigo-500' />,
-            <FaGoogle className='text-red-500' />,
-            <SiVercel className='text-black' />,
-            <SiRender className='text-indigo-600' />
+            { icon: <FaReact className='text-sky-500' />, name: 'React' },
+            { icon: <SiTailwindcss className='text-teal-400' />, name: 'TailwindCSS' },
+            { icon: <FaNodeJs className='text-green-600' />, name: 'Node.js' },
+            { icon: <SiExpress className='text-gray-800 dark:text-gray-200' />, name: 'Express' },
+            { icon: <SiSocketdotio className='text-indigo-500' />, name: 'Socket.IO' },
+            { icon: <FaGoogle className='text-red-500' />, name: 'Google OAuth' },
+            { icon: <SiVercel className='text-black' />, name: 'Vercel' },
+            { icon: <SiRender className='text-indigo-600' />, name: 'Render' },
         ],
     },
 
@@ -27,12 +27,12 @@ const projects = [
         liveLink: 'https://3-i-front-end.vercel.app/',
         repoLink: 'https://github.com/shubhanshu-a32/3I-Front-End',
         tech: [
-            <FaReact className='text-sky-500' />,
-            <SiTailwindcss className='text-teal-400' />,
-            <FaNodeJs className='text-green-600' />,
-            <SiExpress className='text-gray-800 dark:text-gray-200' />,
-            <SiVercel className='text-black' />,
-            <SiRailway className='text-red-400' />
+            { icon: <FaReact className='text-sky-500' />, name: 'React' },
+            { icon: <SiTailwindcss className='text-teal-400' />, name: 'TailwindCSS' },
+            { icon: <FaNodeJs className='text-green-600' />, name: 'Node.js' },
+            { icon: <SiExpress className='text-gray-800 dark:text-gray-200' />, name: 'Express' },
+            { icon: <SiVercel className='text-black' />, name: 'Vercel' },
+            { icon: <SiRailway className='text-red-400' />, name: 'Railway' },
         ],
     },
 
@@ -42,10 +42,10 @@ const projects = [
         liveLink: 'https://cricket-score-website.vercel.app/',
         repoLink: 'https://github.com/shubhanshu-a32/Cricket-Score-Website',
         tech: [
-            <FaJs className='text-yellow-400' />,
-            <FaReact className='text-sky-500' />,
-            <SiTailwindcss className='text-teal-400' />,
-            <SiVercel className='text-black' />
+            { icon: <FaJs className='text-yellow-400' />, name: 'JavaScript' },
+            { icon: <FaReact className='text-sky-500' />, name: 'React' },
+            { icon: <SiTailwindcss className='text-teal-400' />, name: 'TailwindCSS' },
+            { icon: <SiVercel className='text-black' />, name: 'Vercel' },
         ],
     },
 
@@ -55,37 +55,15 @@ const projects = [
         liveLink: 'https://weather-dashboard-xcqy.onrender.com/',
         repoLink: 'https://github.com/shubhanshu-a32/Weather-dashboard',
         tech: [
-            <FaHtml5 className='text-orange-500' />,
-            <SiCss3 className='text-blue-600' />,
-            <FaJs className='text-yellow-400' />,
-            <FaNodeJs className='text-green-600' />,
-            <SiExpress className='text-gray-800 dark:text-gray-200' />,
-            <SiRender className='text-indigo-600' />
+            { icon: <FaHtml5 className='text-orange-500' />, name: 'HTML5' },
+            { icon: <SiCss3 className='text-blue-600' />, name: 'CSS3' },
+            { icon: <FaJs className='text-yellow-400' />, name: 'JavaScript' },
+            { icon: <FaNodeJs className='text-green-600' />, name: 'Node.js' },
+            { icon: <SiExpress className='text-gray-800 dark:text-gray-200' />, name: 'Express' },
+            { icon: <SiRender className='text-indigo-600' />, name: 'Render' },
         ],
     },
 ];
-
-const techNames = {
-    FaReact: 'React',
-    SiTailwindcss: 'TailwindCSS',
-    FaNodeJs: 'Node.js',
-    SiExpress: 'Express',
-    SiSocketdotio: 'Socket.IO',
-    FaGoogle: 'Google OAuth',
-    SiVercel: 'Vercel',
-    SiRender: 'Render',
-    SiRailway: 'Railway',
-    FaJs: 'JavaScript',
-    FaHtml5: 'HTML5',
-    SiCss3: 'CSS3',
-    SiMongodb: 'MongoDB',
-};
-
-function getTechName(icon) {
-    if (!icon || !icon.type) return '';
-    const name = icon.type.displayName || icon.type.name;
-    return techNames[name] || name;
-}
 
 export default function Projects() {
     const [hovered, setHovered] = useState({}); // { [projectIndex]: hoveredIconIndex }
@@ -165,7 +143,7 @@ export default function Projects() {
                         }}
                         className='relative group rounded-xl overflow-hidden shadow-lg border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-6 text-left'>
                         <div className='absolute top-3 right-3 flex flex-wrap gap-1 z-10'>
-                            {project.tech.map((icon, j) => (
+                            {project.tech.map((tech, j) => (
                                 <motion.div
                                     key={j}
                                     className='relative group bg-white dark:bg-gray-700 p-0.5 rounded flex items-center justify-center w-8 h-8 cursor-pointer'
@@ -178,16 +156,12 @@ export default function Projects() {
                                     {/* Tooltip: only show for hovered icon */}
                                     {hovered[i] === j && (
                                         <span className='absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-gray-900 text-white text-xs pointer-events-none whitespace-nowrap z-50 shadow-lg opacity-100 transition-opacity duration-200'>
-                                            {getTechName(icon)}
+                                            {tech.name}
                                         </span>
                                     )}
-                                    {icon && typeof icon.type === 'function'
-                                        ? (
-                                            <span className="text-2xl leading-none font-normal w-full h-full flex items-center justify-center">
-                                                {icon}
-                                            </span>
-                                        )
-                                        : icon}
+                                    <span className="text-2xl leading-none font-normal w-full h-full flex items-center justify-center">
+                                        {tech.icon}
+                                    </span>
                                 </motion.div>
                             ))}
                         </div>
